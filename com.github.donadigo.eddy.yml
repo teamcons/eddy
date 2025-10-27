@@ -1,8 +1,9 @@
-app-id: com.github.donadigo.eddy
+id: com.github.donadigo.eddy
 runtime: io.elementary.Platform
-runtime-version: '8'
+runtime-version: '8.2'
 sdk: io.elementary.Sdk
 command: com.github.donadigo.eddy
+
 finish-args:
   - --share=ipc
   - --socket=fallback-x11
@@ -13,11 +14,21 @@ finish-args:
   - --system-talk-name=org.freedesktop.Accounts
   - --filesystem=home:ro
   - --filesystem=/etc:ro
+
 cleanup:
-  - '*.a'
-  - '*.la'
-  - '/include'
+  -  '/include'
+  -  '/lib/pkgconfig'
+  -  '/man'
+  -  '/share/doc'
+  -  '/share/gtk-doc'
+  -  '/share/man'
+  -  '/share/pkgconfig'
+  -  '/share/installed-tests'
+  -  '*.la'
+  -  '*.a'
+
 modules:
+  # Needed to access Apt
   - name: libpackagekit-glib2
     buildsystem: meson
     sources:
@@ -36,9 +47,6 @@ modules:
 
   - name: eddy
     buildsystem: meson
-    builddir: true
     sources:
       - type: dir
         path: .
-    config-opts:
-      - -Duse_zeitgeist=false
