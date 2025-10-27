@@ -107,7 +107,7 @@ public class Eddy.LogManager : Object {
                 templates,
                 Zeitgeist.StorageState.ANY,
                 100,
-                Zeitgeist.ResultType.MOST_RECENT_EVENTS 
+                Zeitgeist.ResultType.MOST_RECENT_EVENTS
             );
 
             while (result_set.has_next ()) {
