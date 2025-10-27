@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 2017 Adam Bieńkowski (https://github.com/donadigo/eddy) -->
-<component type="desktop">
+<component type="desktop-application">
   <id>com.github.donadigo.eddy</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
+
   <name>Eddy</name>
   <summary>Install and Manage .deb Files</summary>
   <description>
@@ -22,6 +23,8 @@
     <mediatype>application/x-debian-package</mediatype>
     <mediatype>application/vnd.debian.binary-package</mediatype>
   </provides>
+  <launchable type="desktop-id">com.github.donadigo.eddy.desktop</launchable>
+
   <releases>
       <release version="1.3.3" date="2023-08-06">
         <description>
@@ -256,16 +259,37 @@
   </screenshots>
 
   <content_rating type="oars-1.1"/>
+  <developer id="com.github.donadigo">
+    <name>Adam Bieńkowski</name>
+  </developer>
 
-  <developer_name>Adam Bieńkowski</developer_name>
   <url type="homepage">https://github.com/donadigo/eddy</url>
   <url type="bugtracker">https://github.com/donadigo/eddy/issues</url>
   <url type="help">https://github.com/donadigo/eddy</url>
   <update_contact>donadigos159@gmail.com</update_contact>
+  <branding>
+      <color type="primary" scheme_preference="light">#b30033</color>
+      <color type="primary" scheme_preference="dark">#7a0000</color>
+  </branding>
   <custom>
     <value key="x-appcenter-stripe">pk_live_51GYBHwFaMxdOp98jXKA6CKhwcWWa77h7XLR5ZvyZBQ4l7G2S1E40rdhPlHHLZOWM5a70KthJmqEJjtvNX6XwiUpe00TsRKaWfU</value>
-    <value key="x-appcenter-color-primary">#b30033</value>
-    <value key="x-appcenter-color-primary-text">#f2f2f2</value>
     <value key="x-appcenter-suggested-price">5</value>
   </custom>
+      <keywords>
+        <keyword>Deb</keyword>
+        <keyword>Apt</keyword>
+        <keyword>Debian</keyword>
+        <keyword>Package</keyword>
+        <keyword>Pantheon</keyword>
+        <keyword>elementary OS</keyword>
+    </keywords>
+    <suggests>
+        <id>io.github.ellie_commons.reminduck</id>
+        <id>com.github.elfenware.badger</id>
+    </suggests>
+    <recommends>
+      <control>keyboard</control>
+      <control>pointing</control>
+      <control>touch</control>
+    </recommends>
 </component>
