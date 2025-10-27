@@ -1,6 +1,6 @@
 app-id: com.github.donadigo.eddy
 runtime: io.elementary.Platform
-runtime-version: '7.2'
+runtime-version: '8'
 sdk: io.elementary.Sdk
 command: com.github.donadigo.eddy
 finish-args:
@@ -22,12 +22,17 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/PackageKit/PackageKit/archive/refs/tags/PACKAGEKIT_1_2_4.tar.gz
-        sha256: 4a7b0a41ffa56ad8af67156c46ecb9d4eb439b31a4cb581d959bd5480444954b
-      - type: patch
-        path: patches/packagekit.patch
+        url: https://github.com/PackageKit/PackageKit/archive/refs/tags/v1.3.2.tar.gz
+        sha256: 22df53fef59ee4542238350b5a66587416d56eabf43c8ba46208900442a7dc0f
     config-opts:
       - --buildtype=release
+      #- -Dpackaging_backend=['apt']
+      - -Dsystemd=false
+      - -Doffline_update=false
+      - -Dman_pages=false
+      - -Dpython_backend=false
+      - -Dbash_completion=false
+      - -Dbash_command_not_found=false
 
   - name: eddy
     buildsystem: meson
