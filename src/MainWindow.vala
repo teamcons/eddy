@@ -160,19 +160,10 @@ public class Eddy.MainWindow : Gtk.Window {
 
         var settings = AppSettings.get_default ();
 
-        int x = settings.window_x;
-        int y = settings.window_y;
-
-        if (x != -1 && y != -1) {
-            move (x, y);
-        }
-
         resize (settings.window_width, settings.window_height);
         if (settings.window_maximized) {
             maximize ();
         }
-
-        set_keep_above (settings.always_on_top);
 
         drag_data_received.connect (on_drag_data_received);
 
@@ -236,21 +227,13 @@ public class Eddy.MainWindow : Gtk.Window {
             }
         }
 
-        int x, y, width, height;
-        get_position (out x, out y);
+        int width, height;
         get_size (out width, out height);
 
         var settings = AppSettings.get_default ();
-        settings.window_x = x;
-        settings.window_y = y;
         settings.window_width = width;
         settings.window_height = height;
         settings.window_maximized = is_maximized;
-
-        var window = get_window ();
-        if (window != null) {
-            settings.always_on_top = Gdk.WindowState.ABOVE in window.get_state ();
-        }
 
         return false;
     }

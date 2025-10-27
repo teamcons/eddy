@@ -64,7 +64,7 @@ public class Eddy.Application : Gtk.Application {
             // Register Eddy as the default app if there's no handler for a supported mimetype
             register_default_handler ();
         }
-        
+
         var quit_action = new SimpleAction ("quit", null);
         add_action (quit_action);
         set_accels_for_action ("app.quit", {"<Control>q"});

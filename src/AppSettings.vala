@@ -16,13 +16,10 @@
  */
 
 public class Eddy.AppSettings : Granite.Services.Settings {
-    public string[] mime_types { get; set; } 
-    public bool always_on_top { get; set; }
+    public string[] mime_types { get; set; }
 
     public int window_width { get; set; }
     public int window_height { get; set; }
-    public int window_x { get; set; }
-    public int window_y { get; set; }
     public bool window_maximized { get; set; }
 
     private static AppSettings? instance;
