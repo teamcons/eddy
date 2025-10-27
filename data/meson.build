@@ -12,7 +12,7 @@ foreach i : icon_sizes
 endforeach
 
 i18n.merge_file(
-    input: meson.project_name() + '.desktop.in',
+    input: 'eddy.desktop.in',
     output: meson.project_name() + '.desktop',
     po_dir: join_paths(meson.project_source_root(), 'po', 'extra'),
     type: 'desktop',
@@ -21,13 +21,13 @@ i18n.merge_file(
 )
 
 install_data (
-    meson.project_name () + '.gschema.xml',
+    'gschema.xml',
     install_dir: join_paths (get_option ('datadir'), 'glib-2.0', 'schemas')
 )
 
 i18n.merge_file(
-    input: meson.project_name() + '.appdata.xml.in',
-    output: meson.project_name() + '.appdata.xml',
+    input: 'metainfo.xml.in',
+    output: meson.project_name() + '.metainfo.xml',
     po_dir: join_paths(meson.project_source_root(), 'po', 'extra'),
     install: true,
     install_dir: join_paths(get_option('datadir'), 'metainfo')
@@ -46,6 +46,6 @@ if appstreamcli.found()
     test (
         'Validate appdata file',
         appstreamcli,
-        args: ['validate', join_paths(meson.current_build_dir (), meson.project_name() + '.appdata.xml')]
+        args: ['validate', join_paths(meson.current_build_dir (), meson.project_name() + '.metainfo.xml')]
     )
 endif

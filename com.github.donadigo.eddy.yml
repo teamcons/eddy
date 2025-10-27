@@ -1,6 +1,6 @@
 id: com.github.donadigo.eddy
 runtime: io.elementary.Platform
-runtime-version: '8.2'
+runtime-version: '8'
 sdk: io.elementary.Sdk
 command: com.github.donadigo.eddy
 
@@ -29,7 +29,7 @@ cleanup:
 
 modules:
   # Needed to access Apt
-  - name: libpackagekit-glib2
+  - name: packagekit-glib2
     buildsystem: meson
     sources:
       - type: archive
@@ -47,6 +47,7 @@ modules:
 
   - name: eddy
     buildsystem: meson
+    builddir: true
     sources:
       - type: dir
         path: .
