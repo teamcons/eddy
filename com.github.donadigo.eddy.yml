@@ -13,7 +13,6 @@ finish-args:
   - --talk-name=org.freedesktop.PackageKit
   - --system-talk-name=org.freedesktop.Accounts
   - --filesystem=home:ro
-  - --filesystem=/etc:ro
 
 cleanup:
   -  '/include'
